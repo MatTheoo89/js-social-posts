@@ -55,20 +55,32 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
-console.log(posts[0].author.name);
 
-let printContainer = document.querySelector('#container');
-console.log(printContainer);
-
-
-
+const printContainer = document.querySelector('#container');
+//console.log(printContainer);
 
 posts.forEach(post => {
     printContainer.innerHTML += getTemplatePost(post);
 });
 
+// provo il bottone
+const likeButton = document.querySelector('.likes__cta');
+console.log(likeButton);
+
+const isClicked = false;
+let clickedCounter = 0;
 
 
+likeButton.addEventListener('click', function(){
+    if(isClicked === false && !clickedCounter % 2){
+        document.querySelector('.js-like-button').classList.add('like-button--liked');
+        clickedCounter++;
+    }
+    else{
+        clickedCounter = 0;
+        document.querySelector('.js-like-button').classList.remove('like-button--liked')
+    }
+});
 
 
 
